@@ -58,4 +58,9 @@ class clientesController extends Controller
 		}
 				return Redirect("clientes");
     }
+
+    public function obtenerFolioCliente(){
+        $rs=DB::select("SELECT id FROM clientes ORDER BY id DESC LIMIT 1");
+        return $rs;
+    }
 }

@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Clientes</title>
 
@@ -110,11 +109,18 @@
 
     		-moz-appearance:textfield;
 			}
+        #folioVenta{
+            float:right;
+            color:green;
+            margin-right: 25%;
+        }
         </style>
     </head>
     <body>
        @include('layouts.menuNavBar')
-       
+    <div>
+        <h4 id="folioVenta"></h4>
+    </div>
     <div id="tableContent">
     <h2>Registro de Ventas</h2>
     <div>
@@ -170,7 +176,7 @@
             <li style="display: block;">Total:</li>
         </ul>
         <div style="float: right;"><button class="btnSuccess" id="siguienteFase" type="button" style="margin-left: 5px;">Siguiente</button>
-     <a class="btnCancel" id="cancelar" href="ventas">Cancelar</a></div>
+        <button class="btnCancel" id="cancelarNuevaVenta" href="ventas">Cancelar</button></div>
     </div>
     </div>
 

@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' =>  'mysql',
 
     /*
     |--------------------------------------------------------------------------
@@ -54,11 +54,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => 'localhost',
+            'host' => 'server74.hosting24.com',
             'port' => '3306',
-            'database' => 'db',
-            'username' => 'root',
-            'password' => '',
+            'database' => 'codefact_sidefa',
+            'username' => 'codefact_locapp',
+            'password' => 'NoLoHagaCompa.2017',
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',

@@ -27,6 +27,7 @@ Route::post('findArticulo','ventasController@findArticulo');
 Route::post('obtenerConfig','ventasController@obtenerConfig');
 Route::post('checkExistencia', 'ventasController@checkExistencia');
 Route::post('guardarVenta', 'ventasController@guardarVenta');
+Route::post('obtenerFolioVenta','ventasController@obtenerFolioVenta');
 
 //Clientes
 Route::get('clientes','clientesController@vistaClientes');
@@ -34,6 +35,7 @@ Route::post('agregarCliente','clientesController@postCliente');
 Route::get('agregarCliente','clientesController@getCliente');
 Route::get('editarCliente','clientesController@getEditarCliente');
 Route::post('editarCliente','clientesController@postEditarCliente');
+Route::post('obtenerFolioCliente','clientesController@obtenerFolioCliente');
 
 //Articulos
 Route::get('articulos','articulosController@vistaArticulos');
@@ -41,6 +43,7 @@ Route::post('agregarArticulo','articulosController@postArticulo');
 Route::get('agregarArticulo','articulosController@getArticulo');
 Route::get('editarArticulo','articulosController@getEditarArticulo');
 Route::post('editarArticulo','articulosController@postEditarArticulo');
+Route::post('obtenerFolioArticulo','articulosController@obtenerFolioArticulo');
 
 //Configuracion
 Route::get('configuracion','configController@getConfig');

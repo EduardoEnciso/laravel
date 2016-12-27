@@ -8,6 +8,7 @@
               <a href="configuracion">Configuracion</a>
             </div>
           </li>
+          <li class="dropdown" style="float: right; margin-right: 8%;"><a id="fecha"></a></li>
         </ul>
 
 

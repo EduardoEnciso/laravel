@@ -71,8 +71,13 @@ class ventasController extends Controller
         ['idCliente' => $clave, 'total' => $total, 'fecha' => date("d-m-Y")]
         );
         if($rs){
-            DB::table('articulos')->where("id",$claveArticulo)->decrement('existencia',5);
+            DB::table('articulos')->where("id",$claveArticulo)->decrement('existencia', $cantidad);
             return 1;
         }
+    }
+
+    public function obtenerFolioVenta(){
+        $rs=DB::select("SELECT id FROM ventas ORDER BY id DESC LIMIT 1");
+        return $rs;
     }
 }

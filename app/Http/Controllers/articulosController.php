@@ -58,4 +58,9 @@ class articulosController extends Controller
 		}
 				return Redirect("articulos");
     }
+
+    public function obtenerFolioArticulo(){
+        $rs=DB::select("SELECT id FROM articulos ORDER BY id DESC LIMIT 1");
+        return $rs;
+    }
 }

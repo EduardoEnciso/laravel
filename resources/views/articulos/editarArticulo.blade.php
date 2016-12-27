@@ -3,8 +3,6 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <title>Vendimia</title>
 
         <!-- Fonts -->
@@ -42,11 +40,11 @@
         </li>
         <li>
             <label class="labelClientForm" for="precio">Precio:</label>
-            <input type="text" name="precio" value="{{$articulo[0]->precio}}" required />
+            <input type="number" step="any" name="precio" min="0" value="{{$articulo[0]->precio}}" required />
         </li>
         <li>
             <label class="labelClientForm" for="existencia">Existencia:</label>
-            <input type="text" name="existencia" value="{{$articulo[0]->existencia}}" required  />
+            <input type="number" name="existencia"  min="0" value="{{$articulo[0]->existencia}}" required  />
         </li>
         <li>
         <button class="btnSuccess" type="submit">Guardar</button>

@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Configuracion</title>
 
@@ -43,19 +42,19 @@
 
         <li>
             <label class="labelClientForm" for="tasaFinanciamiento">Tasa Financiamiento:</label>
-            <input type="text"  name="tasaFinanciamiento" value="{{$configuracion[0]->tasaFinanciamiento}}" required />
+            <input type="number" step="any" min="0" name="tasaFinanciamiento" value="{{$configuracion[0]->tasaFinanciamiento}}" required />
         </li>
         <li>
             <label class="labelClientForm" for="enganche">% Enganche:</label>
-            <input type="text" name="enganche" value="{{$configuracion[0]->enganche}}" required />
+            <input type="number" step="any" min="0" name="enganche" value="{{$configuracion[0]->enganche}}" required />
         </li>
         <li>
             <label class="labelClientForm" for="plazoMaximo">Plazo Maximo:</label>
-            <input type="text" name="plazoMaximo" value="{{$configuracion[0]->plazoMaximo}}" required />
+            <input type="number" step="any" min="0" name="plazoMaximo" value="{{$configuracion[0]->plazoMaximo}}" required />
         </li>
         <li>
         <button class="btnSuccess" type="submit">Guardar</button>
-         <a class="btnCancel" href="inicio">Cancelar</a>
+         <button class="btnCancel" type="button" id="cancelConfig">Cancelar</button>
         </li>
     </ul>
 </form>

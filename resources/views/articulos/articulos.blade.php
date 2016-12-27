@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Nuevo Articulo</title>
 
@@ -19,10 +19,18 @@
             width: 120px;
             text-align: right;
         }
+        #folioArticulo{
+            float:right;
+            color:green;
+            margin-right: 25%;
+        }
         </style>
     </head>
     <body>
        @include('layouts.menuNavBar')
+       <div>
+        <h4 id="folioArticulo">Folio</h4>
+    </div>
        <div id="agregarClienteForm">
        <form class="contact_form" action="agregarArticulo" method="post">
     <ul class="ul_editar">
@@ -40,11 +48,11 @@
         </li>
         <li>
             <label class="labelClientForm" for="precio">Precio:</label>
-            <input type="text" name="precio" required />
+            <input type="number" step="any" min="0" name="precio" required />
         </li>
         <li>
             <label class="labelClientForm" for="existencia">Existencia:</label>
-            <input type="text" name="existencia" required  />
+            <input type="number" min="0" name="existencia" required  />
         </li>
         <li>
          

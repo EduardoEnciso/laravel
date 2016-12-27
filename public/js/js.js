@@ -1,6 +1,9 @@
 $(document).ready(function(){
-
-
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
 //Variables de configuracion
 var configPlazoMaximo=0;
 var configTasaFinanciamiento=0;
@@ -8,7 +11,12 @@ var configEnganche=0;
 var plazoMaximo=0;
 var tasaFinanciamiento=0;
 var enganche=0;
-
+/////////////////////////////////////FECHA//////////////////////////////////////////
+var date=new Date();
+var dia = date.getDate();
+var mes = date.getMonth();
+var año = date.getFullYear();
+$("#fecha").text("Fecha: "+dia+"/"+mes+"/"+año);
 /////////////////////////////////////CLIENTES/////////////////////////////////////////////////////////////////////////////////
 
 $("#cancelEditarCliente").click(function(){
@@ -25,6 +33,19 @@ window.location.href="clientes";
 
 }
 });
+///////OBTENER FOLIO DEL CLIENTE///////////////
+$.ajax({
+	    type: "post",
+	    cache: false,
+	    url: "obtenerFolioCliente",
+	})
+	 .done(function(data) {
+	 	console.log(data);
+	 	$("#folioCliente").text("Folio Cliente: "+(data[0].id+1));
+	 })
+	 .fail(function(data) {
+	    
+	});
 ///////////////////////////////////FIN CLIENTES///////////////////////////////////////////////////////////////////////////////
 
 
@@ -56,7 +77,31 @@ window.location.href="articulos";
 
 }
 });
+
+///////OBTENER FOLIO DEL ARTICULO///////////////
+$.ajax({
+	    type: "post",
+	    cache: false,
+	    url: "obtenerFolioArticulo",
+	})
+	 .done(function(data) {
+	 	console.log(data);
+	 	$("#folioArticulo").text("Folio Articulo: "+(data[0].id+1));
+	 })
+	 .fail(function(data) {
+	    
+	});
 ///////////////////////////////////FIN ARTICULOS///////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////VENTAS///////////////////////////////////////////////////////////////////////////////
+$("#cancelarNuevaVenta").click(function(){
+var com= confirm("¿Desea salir de la pantalla actual?");
+if(com == true){
+window.location.href="ventas";
+
+}
+});
+
 //Obtener configuracion
 function obtenerConfig(){
 	$.ajax({
@@ -88,11 +133,6 @@ $(this).val("");
 $("#rfcCliente").text("");
 });
 
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
 
 
 
@@ -141,7 +181,20 @@ $("#rfcCliente").text("RFC: "+$(this).data("rfc"));
 $("#displayC").html("");
 });
 
-///////////////////BUSCADOR DE Articulos////////////////////////
+///////////////////OBTENER FOLIO DE VENTA/////////////////////////////
+$.ajax({
+	    type: "post",
+	    cache: false,
+	    url: "obtenerFolioVenta",
+	})
+	 .done(function(data) {
+	 	console.log(data);
+	 	$("#folioVenta").text("Folio Venta: "+(data[0].id+1));
+	 })
+	 .fail(function(data) {
+	    
+	});
+///////////////////BUSCADOR DE ARTICULOS////////////////////////
 $("#cajabusquedaA").keyup(function(e){
 if(e.keyCode == 8){
 	$(this).attr("name","");
@@ -350,6 +403,8 @@ $("#siguienteFase").click(function(){
 		$("#cancelar").css("display","none");
 		$("#siguienteFase").css("display","none");
 		$("#cajabusquedaC").prop("disabled",true);
+		$("#cajabusquedaA").prop("disabled",true);
+		$("#cancelarNuevaVenta").prop("disabled",true);
 		$(".cantidadA").prop("disabled",true);
 		$(".deleteArticulo").prop("disabled",true);
 
@@ -397,8 +452,10 @@ $("#cancelarMensualidades").click(function(){
 		$("#cancelar").css("display","block");
 		$("#siguienteFase").css("display","block");
 		$("#cajabusquedaC").prop("disabled",false);
+		$("#cajabusquedaA").prop("disabled",false);
 		$(".cantidadA").prop("disabled",false);
 		$(".deleteArticulo").prop("disabled",false);
+		$("#cancelarNuevaVenta").prop("disabled",false);
 });
 
 $("#guardarVenta").click(function(){

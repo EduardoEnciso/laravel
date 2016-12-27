@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Vendimia</title>
 
@@ -12,17 +12,25 @@
         <link rel="stylesheet" href="css/style.css">
         <script src="js/jquery-3.1.1.min.js"></script>
         <script src="js/js.js"></script>
-
+        
         <style>
         .labelClientForm{
             display: inline-block;
             width: 120px;
             text-align: right;
         }
+        #folioCliente{
+            float:right;
+            color:green;
+            margin-right: 25%;
+        }
         </style>
     </head>
     <body>
        @include('layouts.menuNavBar')
+    <div>
+        <h4 id="folioCliente">Folio</h4>
+    </div>
        <div id="agregarClienteForm">
        <form class="contact_form" action="agregarCliente" method="post">
     <ul class="ul_editar">
