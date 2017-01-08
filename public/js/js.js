@@ -16,7 +16,7 @@ var date=new Date();
 var dia = date.getDate();
 var mes = date.getMonth();
 var año = date.getFullYear();
-$("#fecha").text("Fecha: "+dia+"/"+mes+"/"+año);
+$("#fecha").text("Fecha: "+dia+"/"+(mes+1)+"/"+año);
 /////////////////////////////////////CLIENTES/////////////////////////////////////////////////////////////////////////////////
 
 $("#cancelEditarCliente").click(function(){
@@ -404,7 +404,7 @@ $("#siguienteFase").click(function(){
 		$("#siguienteFase").css("display","none");
 		$("#cajabusquedaC").prop("disabled",true);
 		$("#cajabusquedaA").prop("disabled",true);
-		$("#cancelarNuevaVenta").prop("disabled",true);
+		$("#cancelarNuevaVenta").css("display","none");
 		$(".cantidadA").prop("disabled",true);
 		$(".deleteArticulo").prop("disabled",true);
 
@@ -429,19 +429,19 @@ $("#siguienteFase").click(function(){
 	var importeAhorro12 = total - total12;
 
 	//LLENAR CAMPOS
-	$("#mensualidades").children(":nth-child(2)").children(":nth-child(2)").text(importe3.toFixed(2));
+	$("#mensualidades").children(":nth-child(2)").children(":nth-child(2)").text("$"+importe3.toFixed(2));
 	$("#mensualidades").children(":nth-child(2)").children(":nth-child(3)").text("TOTAL A PAGAR $ "+total3.toFixed(2));
 	$("#mensualidades").children(":nth-child(2)").children(":nth-child(4)").text("SE AHORRA $ "+importeAhorro3.toFixed(2));
 
-	$("#mensualidades").children(":nth-child(3)").children(":nth-child(2)").text(importe6.toFixed(2));
+	$("#mensualidades").children(":nth-child(3)").children(":nth-child(2)").text("$"+importe6.toFixed(2));
 	$("#mensualidades").children(":nth-child(3)").children(":nth-child(3)").text("TOTAL A PAGAR $ "+total6.toFixed(2));
 	$("#mensualidades").children(":nth-child(3)").children(":nth-child(4)").text("SE AHORRA $ "+importeAhorro6.toFixed(2));
 
-	$("#mensualidades").children(":nth-child(4)").children(":nth-child(2)").text(importe9.toFixed(2));
+	$("#mensualidades").children(":nth-child(4)").children(":nth-child(2)").text("$"+importe9.toFixed(2));
 	$("#mensualidades").children(":nth-child(4)").children(":nth-child(3)").text("TOTAL A PAGAR $ "+total9.toFixed(2));
 	$("#mensualidades").children(":nth-child(4)").children(":nth-child(4)").text("SE AHORRA $ "+importeAhorro9.toFixed(2));
 
-	$("#mensualidades").children(":nth-child(5)").children(":nth-child(2)").text(importe12.toFixed(2));
+	$("#mensualidades").children(":nth-child(5)").children(":nth-child(2)").text("$"+importe12.toFixed(2));
 	$("#mensualidades").children(":nth-child(5)").children(":nth-child(3)").text("TOTAL A PAGAR $ "+total12.toFixed(2));
 	$("#mensualidades").children(":nth-child(5)").children(":nth-child(4)").text("SE AHORRA $ "+importeAhorro12.toFixed(2));
 
@@ -455,7 +455,7 @@ $("#cancelarMensualidades").click(function(){
 		$("#cajabusquedaA").prop("disabled",false);
 		$(".cantidadA").prop("disabled",false);
 		$(".deleteArticulo").prop("disabled",false);
-		$("#cancelarNuevaVenta").prop("disabled",false);
+		$("#cancelarNuevaVenta").css("display","block");
 });
 
 $("#guardarVenta").click(function(){

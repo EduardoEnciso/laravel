@@ -17,8 +17,15 @@
        @include('layouts.menuNavBar')
        
     <div id="tableContent">
-        <h2>Clientes Registrados</h2>
-        <a href="agregarCliente">Nuevo Cliente</a>
+        <a href="agregarCliente">
+            <div id="agregar_content">
+                <img src="{{url('images/add_icon.png')}}" alt="">
+                <div id="ref_align">
+                    <p>Nuevo Cliente</p>
+                </div>
+            </div>
+        </a>
+        <h2 class="title_h2">Clientes Registrados</h2>
         <table>
         <thead>
             <tr>
@@ -33,7 +40,11 @@
             <tr>
                 <td>{{$cliente->id}}</td>
                 <td>{{$cliente->nombre}} {{$cliente->aPaterno}} {{$cliente->aMaterno}}</td>
-                <td><a href="editarCliente?clave={{$cliente->id}}">Editar</a></td>
+                <td>
+                    <a href="editarCliente?clave={{$cliente->id}}">
+                        <div class="edit_icon"><img src="{{url('images/edit_icon.png')}}" alt=""></div>
+                    </a>
+                </td>
             </tr>
             @endforeach
         @endif

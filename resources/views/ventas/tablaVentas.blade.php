@@ -17,8 +17,15 @@
        @include('layouts.menuNavBar')
        
     <div id="tableContent">
-        <h2>Ventas Activas</h2>
-        <a href="nuevaVenta">Nueva Venta</a>
+        <a href="nuevaVenta">
+            <div id="agregar_content">
+                <img src="{{url('images/add_icon.png')}}" alt="">
+                <div id="ref_align">
+                    <p>Nueva Venta</p>
+                </div>
+            </div>
+        </a>
+        <h2 class="title_h2">Ventas Activas</h2>
         <table>
         <thead>
             <tr>
